@@ -8,8 +8,20 @@ const port = 3000
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.set('views', './views')
+
+// set body-parser
+// This line of code must be placed before the routes!
+app.use(express.urlencoded({ extended: true }))
+
 // set routes
 app.get('/', (req, res) => {
+  res.render('index')
+})
+
+// 取得form傳送的資料
+// HTTP method: POST 把資料傳到 server
+app.post('/', (req, res) => {
+  console.log('req.body', req.body)
   res.render('index')
 })
 
