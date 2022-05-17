@@ -1,4 +1,4 @@
-function generatePassword () {
+function generatePassword (options) {
   // define characters, numbers, and symbols combined in a password
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
   const upperCaseLetters = lowerCaseLetters.toUpperCase()
@@ -6,16 +6,6 @@ function generatePassword () {
   const symbols = '`~!@$%^&*()-_+={}[]|;:"<>,.?/'
 
   // create a collection to store what user picked up
-  // dummy data from req.body
-  const options = {
-    length: '12',
-    lowercase: 'on',
-    uppercase: 'on',
-    numbers: 'on',
-    symbols: 'on',
-    excludeCharacters: 'yY6'
-  }
-
   let collection = []
 
   if (options.lowercase === 'on') {
@@ -59,5 +49,5 @@ function randomSample (array) {
   return array[randomIndex]
 }
 
-// invoke generatePassword function
-generatePassword()
+// export generatePassword function for other files to use
+module.exports = generatePassword
