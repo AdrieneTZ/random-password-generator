@@ -22,8 +22,9 @@ app.get('/', (req, res) => {
 // 取得form傳送的資料
 // HTTP method: POST 把資料傳到 server
 app.post('/', (req, res) => {
-  const password = generatePassword(req.body)
-  res.render('index', { password: password })
+  const options = req.body
+  const password = generatePassword(options)
+  res.render('index', { password: password, options: options })
 })
 
 // start the express server and listening for connections
