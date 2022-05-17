@@ -27,5 +27,5 @@ app.post('/', (req, res) => {
 
 // start the express server and listening for connections
 app.listen(port, () => {
-  console.log(`Express app is listening on https://localhost:${port}.`)
+  console.log(`Express app is listening on http://localhost:${port}.`)
 })
